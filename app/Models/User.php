@@ -78,6 +78,13 @@ class User extends Authenticatable
         return $this->morphOne(Image::class,'imageable');
     }
 
+    // Obtener el nombre completo del usuario
+    public function getFullName()
+    {
+        return "$this->first_name $this->last_name";
+    }
+
+
 }
 
 
