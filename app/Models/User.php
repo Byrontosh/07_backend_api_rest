@@ -104,6 +104,14 @@ class User extends Authenticatable
         return $this->image->path;
     }
 
+    // Función para saber si el rol que tiene asignado el usuario
+    // es el mismo que se le esta pasando a la función
+    // https://laravel.com/docs/9.x/eloquent-relationships#one-to-many
+    public function hasRole(string $role_slug)
+    {
+        return $this->role->slug === $role_slug;
+    }
+
 }
 
 
