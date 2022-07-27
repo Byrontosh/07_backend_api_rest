@@ -63,9 +63,13 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        
+
         // https://laravel.com/docs/9.x/middleware#registering-middleware
         'is.user.active' => \App\Http\Middleware\IsUserActive::class,
         'verify.user.role' => \App\Http\Middleware\VerifyUserRole::class,
+
+        // https://laravel.com/docs/9.x/middleware#registering-middleware
+        'verify.ward.assignment' => \App\Http\Middleware\VerifyWardAssignment::class,
+        'verify.jail.assignment' => \App\Http\Middleware\VerifyJailAssignment::class,
     ];
 }

@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class UserResource extends JsonResource
+class SpaceResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,14 +18,9 @@ class UserResource extends JsonResource
         // https://laravel.com/docs/9.x/eloquent-resources#introduction
         return [
             'id' => $this->id,
-            'username' => $this->username,
-            'full_name' => $this->getFullName(),
-            'email' => $this->email,
-            'role' => $this->role->name,
-            'birthdate' => $this->birthdate,
-            'home_phone' => $this->home_phone,
-            'personal_phone' => $this->personal_phone,
-            'address' => $this->address,
+            'name' => $this->name,
+            'state' => $this->state,
+            'description' => $this->description
         ];
     }
 }

@@ -45,5 +45,31 @@ class AuthServiceProvider extends ServiceProvider
         {
             return $user->role->slug === "admin";
         });
+
+        // El usuario con perfil director solo puede realizar la
+        // gestión (CRUD) de pabellones
+        Gate::define('manage-wards', function (User $user) {
+            return $user->role->slug === "director";
+        });
+
+        // El usuario con perfil director solo puede realizar la
+        // gestión (CRUD) de cárceles
+        Gate::define('manage-jails', function (User $user) {
+            return $user->role->slug === "director";
+        });
+
+
+        // El usuario con perfil director solo puede realizar la
+        // asignación de prisioneros a las cárceles
+        Gate::define('manage-jails', function (User $user) {
+            return $user->role->slug === "director";
+        });
+
+        // El usuario con perfil director solo puede realizar la
+        // asignación de guardias a pabellones
+        Gate::define('manage-assignment', function (User $user) {
+            return $user->role->slug === "director";
+        });
+        
     }
 }

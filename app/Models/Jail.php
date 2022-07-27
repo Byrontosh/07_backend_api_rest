@@ -9,6 +9,9 @@ class Jail extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'code', 'type', 'capacity', 'description', 'ward_id'];
+
+
     // Relación de uno a muchos
     // Una cárcel le pertenece a un pabellón
     public function ward()

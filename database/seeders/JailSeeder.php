@@ -28,7 +28,9 @@ class JailSeeder extends Seeder
 
         // las carceles pueden tener muchos usuarios
         $jails=Jail::all();
+
         $users_prisoers = User::where('role_id',4)->get();
+
         $jails->each(function($jail) use ($users_prisoers)
         {
             $jail->users()->attach($users_prisoers->shift(5));
