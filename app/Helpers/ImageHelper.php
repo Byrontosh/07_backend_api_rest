@@ -4,6 +4,7 @@ namespace App\Helpers;
 
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ImageHelper
 {
@@ -29,4 +30,17 @@ class ImageHelper
          // Se retorna la ubicación de la imagen
         return $uploaded_image_path;
     }
+
+
+    // Función estática para obtener la imagen de dropbox
+    static function getDiskImageUrl(string $path, string $disk = 'dropbox')
+    {
+        // https://laravel.com/docs/9.x/helpers#method-starts-with
+        // https://laravel.com/docs/9.x/filesystem#file-urls
+        return Str::startsWith($path, 'https://')
+            ? $path
+            : Storage::disk($disk)->url($path);
+    }
+
+
 }
